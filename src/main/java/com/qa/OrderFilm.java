@@ -17,11 +17,11 @@ public class OrderFilm {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
-    private int  accountId;
+     private int  accountId;
     private String OrderNumber;
 
     public OrderFilm(){
+
 
     }
     public OrderFilm(int accountId, String orderNumber) {

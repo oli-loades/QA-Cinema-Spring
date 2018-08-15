@@ -2,17 +2,11 @@ package com.qa;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import  org.springframework.web.bind.annotation.RestController;
-import  org.springframework.web.bind.annotation.RequestBody;
-import  org.springframework.web.bind.annotation.ResponseStatus;
-
-
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value="/Order")
@@ -35,11 +29,27 @@ public class OrderContoller {
               orderReposoinity.save(orderFilmToAdd);
        }
 
-//       @PutMapping("{id}")
-//       @ResponseStatus(HttpStatus.CREATED)
-//       public void updateOrder(@PathVariable  )
-//       { orderReposoinity.
-//       }
+       @PutMapping("{id}")
+       @ResponseStatus(HttpStatus.CREATED)
+       public void updateOrder(@RequestBody OrderFilm orderFilm, @PathVariable long id)
+       {
+             Optional<OrderFilm> orderFilmOptional  = orderReposoinity.findById(id);
+
+              orderFilm.setId(id);
+             orderReposoinity.save(orderFilm);
+
+
+       }
+
+
+       @DeleteMapping("{id}")
+       @ResponseStatus(HttpStatus.NO_CONTENT)
+       public void detelteOrder(@PathVariable Long id)
+       {
+               orderReposoinity.deleteById(id);
+       }
+
+
 
 
 
