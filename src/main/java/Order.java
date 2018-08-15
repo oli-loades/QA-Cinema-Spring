@@ -1,19 +1,22 @@
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyIntailizer","handler"})
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long orderId;
-    @JoinColumn(name="id")
+    //@JoinColumn(name="id")
     //OneToMany(Map)
     private int accountId;
     private String orderNumber;
 
-
+    @JsonIgnoreProperties({"hibernateLazyIntailizer","handler"})
 
     public Order(Integer orderId, int accountId, String orderNumber) {
         this.orderId = orderId;

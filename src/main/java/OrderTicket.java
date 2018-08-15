@@ -4,8 +4,8 @@ import javax.persistence.*;
 public class OrderTicket {
      @Id
      private long ticketId;
-     @ManyToOne
-     @JoinColumn(name="orderIdf")
+     //@ManyToOne
+     //@JoinColumn(name="orderIdf")
      private Order Order;
 
 
