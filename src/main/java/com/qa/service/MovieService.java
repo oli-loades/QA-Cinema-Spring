@@ -1,21 +1,67 @@
 package com.qa.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.qa.constants.MovieConstants;
-@Component 
+import com.qa.model.MovieModel;
+import com.qa.repository.MovieRepository;
+import com.qa.util.MovieDto;
+
+@Component
 public class MovieService {
 
-	
 	@Autowired
-	private RestTemplate restTemplate; 
+	private RestTemplate restTemplate;
+
+	@Autowired
+	private MovieRepository movieRepo;
+
+	public List<MovieDto> getAPIKey(String keyword) {
+		List<MovieModel> movie = movieRepo.findByTitle(keyword);
+		List<MovieDto> movies = new ArrayList<>();
+
+		for (MovieModel m : movie) {
+			MovieDto mov = restTemplate.getForObject(
+					MovieConstants.ADDRESS + m.getImdbID() + MovieConstants.API_KEY, MovieDto.class);
+			mov.setId(m.getId());
+			movies.add(mov);
+		}
+
+		return movies;
+	}
 	
-	public String getAPIKey(String keyword){
-		String key;
-		key = restTemplate.getForObject(MovieConstants.ADDRESS + keyword + MovieConstants.API_KEY, String.class); 
-		return key; 
+	public List<MovieDto> getAll(){
+		List<MovieModel> allMovies = movieRepo.findAll();
+		List<MovieDto> movies = new ArrayList<>();
+
+		for (MovieModel m : allMovies) {
+			MovieDto mov = restTemplate.getForObject(
+					MovieConstants.ADDRESS + m.getImdbID() + MovieConstants.API_KEY, MovieDto.class);
+			mov.setId(m.getId());
+			movies.add(mov);
+		}
+
+		return movies;
+	}
+	
+	public String addMovie(MovieModel movie) {
+		movieRepo.save(movie);
+		return "{\"message\": \"movie sucessfully added\"}";
+	}
+	
+	public String deleteMovie(long id) {
+		movieRepo.deleteById(id);
+		return "{\"message\": \"movie sucessfully deleted\"}";
+	}
+	
+	public MovieDto test(){
+		return restTemplate.getForObject(
+				MovieConstants.ADDRESS + "tt2854926" + MovieConstants.API_KEY, MovieDto.class);
 	}
 
 }
