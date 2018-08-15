@@ -1,11 +1,21 @@
 package com.qa;
 
+import com.qa.OrderTicket;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
@@ -16,41 +26,68 @@ public class OrderFilm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long orderid;
+    
+    @OneToOne
+    @JoinColumn(name="id")
+    @JsonIgnore
+    private Account account;
+    
 
-    private int  accountId;
-    private String OrderNumber;
 
+ @OneToMany(mappedBy = "orderticket", cascade = CascadeType.ALL, orphanRemoval = true)
+  private List<OrderTicket> tickets;
+    
     public OrderFilm(){
 
     }
-    public OrderFilm(int accountId, String orderNumber) {
-        super();
-        this.accountId = accountId;
-        OrderNumber = orderNumber;
-    }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public int getAccountId() {
-        return accountId;
-    }
+	public OrderFilm(Account account) {
+		super();
+		this.account = account;
+		tickets = new ArrayList<>();
+	}
 
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
-    }
 
-    public String getOrderNumber() {
-        return OrderNumber;
-    }
 
-    public void setOrderNumber(String orderNumber) {
-        OrderNumber = orderNumber;
-    }
+	public Long getId() {
+		return orderid;
+	}
+
+
+
+	public void setId(Long id) {
+		this.orderid = orderid;
+	}
+
+
+
+	public Account getAccount() {
+		return account;
+	}
+
+
+
+	public void setAccount(Account account) {
+		this.account = account;
+	}
+
+
+
+	public List<OrderTicket> getTickets() {
+		return tickets;
+	}
+
+
+
+	public void setTickets(List<OrderTicket> tickets) {
+		this.tickets = tickets;
+	}
+    
+    
+
+      
+
 }

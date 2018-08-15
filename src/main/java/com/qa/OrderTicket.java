@@ -1,42 +1,24 @@
-//package com.qa;
-//
-//
-//
-//import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-//
-//import javax.persistence.*;
-//
-//@Entity
-//@JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
-//public class OrderTicket {
-//     @Id
-//     private long ticketId;
-//     //@ManyToOne
-//     //@JoinColumn(name="orderIdf")
-//     private OrderFilm order;
-//
-//    public OrderTicket(long ticketId, OrderFilm order) {
-//        this.ticketId = ticketId;
-//        this.order = order;
-//    }
-//
-//    public long getTicketId() {
-//        return this.ticketId;
-//    }
-//
-//    public void setTicketId(long ticketId) {
-//        this.ticketId = ticketId;
-//    }
-//
-//    public OrderFilm getOrder() {
-//        return this.order;
-//    }
-//
-//    public void setOrder(OrderFilm order) {
-//        this.order = order;
-//    }
-//
-//
-//}
+package com.qa;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+
+@Entity
+@JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
+public class OrderTicket {
+	
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long ticketId;
+    
+    private int numberoftickets;
+    
+    @ManyToOne
+    @JoinColumn(name="orderId")
+    private OrderFilm orderticket;
+
+
+}
