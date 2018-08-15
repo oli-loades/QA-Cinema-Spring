@@ -1,3 +1,5 @@
+package com.qa;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,7 @@ import  org.springframework.web.bind.annotation.ResponseStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping(value="/Order")
 public class OrderContoller {
 
        @Autowired
@@ -21,16 +23,16 @@ public class OrderContoller {
 
        @GetMapping
        @ResponseStatus(HttpStatus.OK)
-       public List<Order> getOrder()
+       public List<OrderFilm> getOrder()
        {
            return  orderReposoinity.findAll();
        }
 
        @PostMapping
        @ResponseStatus(HttpStatus.CREATED)
-       public void addOrder(@RequestBody Order orderToAdd)
-       {
-             orderReposoinity.save(orderToAdd);
+       public void addOrder(@RequestBody OrderFilm orderFilmToAdd) {
+
+              orderReposoinity.save(orderFilmToAdd);
        }
 
 //       @PutMapping("{id}")
