@@ -46,8 +46,4 @@ public class MovieController {
 		return service.deleteMovie(id);
 	}
 	
-	@GetMapping("/test")
-	public MovieDto test(){
-		return service.test();
-	}
 }
