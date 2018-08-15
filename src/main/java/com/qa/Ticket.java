@@ -17,7 +17,11 @@ public class Ticket {
     private String type;
     private  Long price;
 
+    public Ticket(){
+
+    }
     public Ticket(String type, Long price) {
+        super();
         this.type = type;
         this.price = price;
     }
