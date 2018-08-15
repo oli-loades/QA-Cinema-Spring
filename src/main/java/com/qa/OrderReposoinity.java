@@ -1,7 +1,5 @@
 package com.qa;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
-public interface userRepository extends JpaRepository<Account, Long>{
+public interface OrderReposoinity  extends JpaRepository<OrderFilm,Long> {
 
 }

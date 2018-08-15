@@ -17,11 +17,11 @@ public class Ticket {
     private String type;
     private  Long price;
 
-    public Ticket(){
+     public  Ticket(){
 
-    }
-    public Ticket(String type, Long price) {
-        super();
+     }
+    public Ticket(String type,Long price) {
+         super();
         this.type = type;
         this.price = price;
     }
@@ -42,7 +42,7 @@ public class Ticket {
         this.type = type;
     }
 
-    public Long getPrice() {
+    public float getPrice() {
         return price;
     }
 

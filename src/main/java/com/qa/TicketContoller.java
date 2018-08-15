@@ -12,7 +12,7 @@ public class TicketContoller {
     @Autowired
     TiicketResponisity ticketResponisy;
 
-    @GetMapping("")
+    @GetMapping()
     @ResponseStatus(HttpStatus.OK)
     public List<Ticket> getTickets(){
          return ticketResponisy.findAll();
@@ -25,24 +25,22 @@ public class TicketContoller {
         ticketResponisy.save(ticketToAdd);
     }
 
-    @PutMapping("[id]")
-    public void  updaqteTicket(Ticket tickToUpdate, @PathVariable Long id){
-        Optional<Ticket>  ticketOptional  = ticketResponisy.findById(id);
-
-        tickToUpdate.setId(id);
-        ticketResponisy.save(tickToUpdate);
-
+    @PutMapping("{id}")
+    public void  updaqteTicket(@RequestBody Ticket ticket, @PathVariable long id){
+        Optional<Ticket> ticketOptional  = ticketResponisy.findById(id);
+        ticket.setId(id);
+        ticketResponisy.save(ticket);
     }
 
     @DeleteMapping("{id}")
-    public void  deleateTicket(@PathVariable Long id){
+    public void deleateTicket(@PathVariable long id){
         ticketResponisy.deleteById(id);
     }
-
-    @GetMapping("{id}")
-    public Ticket getOneTicket(@PathVariable Long id){
-         return ticketResponisy.getOne(id);
-    }
+//    @GetMapping("{id}")
+//    public Ticket getOneTicket(@PathVariable long id){
+//        return ticketResponisy.getOne(id);
+//    }
+//
 
 
 }
