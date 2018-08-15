@@ -27,7 +27,7 @@ public class MovieController {
 	private MovieService service; 
 	
 	@GetMapping("/search/{keyword}")
-	public List<String> search(@PathVariable String keyword){
+	public List<MovieDto> search(@PathVariable String keyword){
 		return service.getAPIKey(keyword); 
 	}
 
