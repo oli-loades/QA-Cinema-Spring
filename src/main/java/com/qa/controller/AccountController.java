@@ -15,7 +15,7 @@ import com.qa.business.service.AccountService;
 import com.qa.persistence.domain.Account;
 
 @RestController
-@RequestMapping(value = "/Account")
+@RequestMapping(value = "/account")
 public class AccountController {
 
 	@Autowired

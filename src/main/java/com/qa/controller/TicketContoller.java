@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(value="/Ticket")
+@RequestMapping(value="/ticket")
 public class TicketContoller {
 
 	@Autowired
