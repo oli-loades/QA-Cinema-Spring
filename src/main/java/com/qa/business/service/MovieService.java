@@ -1,4 +1,4 @@
-package com.qa.service;
+package com.qa.business.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.qa.constants.MovieConstants;
-import com.qa.model.MovieModel;
-import com.qa.repository.MovieRepository;
+import com.qa.persistence.domain.MovieModel;
+import com.qa.persistence.repository.MovieRepository;
 import com.qa.util.MovieDto;
 
 @Component

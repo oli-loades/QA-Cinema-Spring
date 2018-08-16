@@ -1,8 +1,8 @@
-package com.qa.repository;
+package com.qa.persistence.repository;
 
 import java.util.List;
 
-import com.qa.model.MovieModel;
+import com.qa.persistence.domain.MovieModel;
 
 public interface MovieRepositoryCustom {
 	List<MovieModel> findByTitle(String title);

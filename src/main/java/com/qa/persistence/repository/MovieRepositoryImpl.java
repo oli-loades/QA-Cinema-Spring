@@ -1,4 +1,4 @@
-package com.qa.repository;
+package com.qa.persistence.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.qa.model.MovieModel;
+import com.qa.persistence.domain.MovieModel;
 
 public class MovieRepositoryImpl implements MovieRepositoryCustom{
 	

@@ -1,4 +1,4 @@
-package com.qa.model;
+package com.qa.persistence.domain;
 
 import javax.persistence.*;
 

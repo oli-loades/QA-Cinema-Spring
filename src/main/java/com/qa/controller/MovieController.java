@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.qa.business.service.MovieService;
 import com.qa.constants.MovieConstants;
-import com.qa.model.MovieModel;
-import com.qa.service.MovieService;
+import com.qa.persistence.domain.MovieModel;
 import com.qa.util.MovieDto;
 
 
