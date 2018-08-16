@@ -1,11 +1,16 @@
-package com.qa;
+package com.qa.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import  org.springframework.web.bind.annotation.RestController;
+
+import com.qa.business.service.OrderService;
+import com.qa.persistence.domain.OrderFilm;
+
 import  org.springframework.web.bind.annotation.RequestBody;
 import  org.springframework.web.bind.annotation.ResponseStatus;
 
@@ -19,20 +24,19 @@ import java.util.List;
 public class OrderContoller {
 
        @Autowired
-       OrderReposoinity orderReposoinity;
+       private OrderService orderServ;
 
-       @GetMapping
+       @GetMapping("/getAll")
        @ResponseStatus(HttpStatus.OK)
-       public List<OrderFilm> getOrder()
+       public List<OrderFilm> getAllOrders()
        {
-           return  orderReposoinity.findAll();
+           return  orderServ.getAll();
        }
 
        @PostMapping
        @ResponseStatus(HttpStatus.CREATED)
-       public void addOrder(@RequestBody OrderFilm orderFilmToAdd) {
-
-              orderReposoinity.save(orderFilmToAdd);
+       public String addOrder(@RequestBody OrderFilm orderFilmToAdd) {
+             return orderServ.add(orderFilmToAdd);
        }
 
 //       @PutMapping("{id}")

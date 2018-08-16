@@ -1,4 +1,4 @@
-package com.qa;
+package com.qa.persistence.domain;
 
 
 import java.util.List;
@@ -30,7 +30,6 @@ public class Account {
 	public Account() {}
 	
 	public Account(String firstName, String lastName, String accountNumber) {
-		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.accountNumber = accountNumber;

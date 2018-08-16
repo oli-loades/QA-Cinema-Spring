@@ -1,4 +1,4 @@
-package com.qa;
+package com.qa.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -21,7 +21,6 @@ public class Ticket {
 
     }
     public Ticket(String type, Long price) {
-        super();
         this.type = type;
         this.price = price;
     }

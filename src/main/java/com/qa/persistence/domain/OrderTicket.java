@@ -1,4 +1,4 @@
-package com.qa;
+package com.qa.persistence.domain;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -22,12 +22,11 @@ public class OrderTicket {
     
     @ManyToOne
     @JoinColumn(name="orderId")
-    private OrderFilm orderticket;
+    private OrderFilm order;
     
     private int numberoftickets;
 
 	public OrderTicket(int numberoftickets) {
-		super();
 		this.numberoftickets = numberoftickets;
 	}
 
@@ -62,11 +61,11 @@ public class OrderTicket {
 	}
 
 	public OrderFilm getOrderticket() {
-		return orderticket;
+		return order;
 	}
 
-	public void setOrderticket(OrderFilm orderticket) {
-		this.orderticket = orderticket;
+	public void setOrderticket(OrderFilm order) {
+		this.order = order;
 	}
     
     
