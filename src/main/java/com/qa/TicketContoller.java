@@ -25,11 +25,11 @@ public class TicketContoller {
         ticketResponisy.save(ticketToAdd);
     }
 
-    @PutMapping("[id]")
-    public void  updaqteTicket(Ticket tickToUpdate, @PathVariable Long id){
-        Optional<Ticket>  ticketOptional  = ticketResponisy.findById(id);
+    @PutMapping("{id}")
+    public void  updaqteTicket(Ticket tickToUpdate, @PathVariable Long ticketId){
+        Optional<Ticket>  ticketOptional  = ticketResponisy.findById(ticketId);
 
-        tickToUpdate.setId(id);
+        tickToUpdate.setTicketId(ticketId);
         ticketResponisy.save(tickToUpdate);
 
     }

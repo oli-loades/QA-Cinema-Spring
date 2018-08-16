@@ -11,8 +11,8 @@ import javax.persistence.Id;
 @JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
 public class Ticket {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private  Long ticketId;
 
     private String type;
     private  Long price;
@@ -26,15 +26,13 @@ public class Ticket {
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getType() {
+    public Long getTicketId() {
+		return ticketId;
+	}
+	public void setTicketId(Long ticketId) {
+		this.ticketId = ticketId;
+	}
+	public String getType() {
         return type;
     }
 
