@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qa.persistence.domain.Ticket;
-import com.qa.persistence.repository.TiicketRespository;
+import com.qa.persistence.repository.TicketRespository;
 
 @Component
 public class TicketService {
 
 	@Autowired
-	private TiicketRespository ticketRepo;
+	private TicketRespository ticketRepo;
 
 	public List<Ticket> getTickets() {
 		return ticketRepo.findAll();

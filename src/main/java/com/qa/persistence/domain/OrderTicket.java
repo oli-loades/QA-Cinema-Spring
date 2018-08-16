@@ -1,55 +1,46 @@
 package com.qa.persistence.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
+@Table(name = "orderticket")
 public class OrderTicket {
-	
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long orderTicketId;
-    
-   
-    
-    @ManyToOne
-    @JoinColumn(name="ticketID")
-    private Ticket ticket;
-    
-    @ManyToOne
-    @JoinColumn(name="orderId")
-    private OrderFilm order;
-    
-    private int numberoftickets;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+
+	@ManyToOne
+	@JoinColumn(name = "ticket")
+	private Ticket ticket;
+
+	@Column(name = "order")
+	private long order;
+
+	private int quantity;
+
+	public OrderTicket() {
+
+	}
 
 	public OrderTicket(int numberoftickets) {
-		this.numberoftickets = numberoftickets;
+		this.quantity = numberoftickets;
 	}
-
-	
 
 	public long getOrderTicketId() {
-		return orderTicketId;
+		return id;
 	}
-
-
 
 	public void setOrderTicketId(long orderTicketId) {
-		this.orderTicketId = orderTicketId;
+		this.id = orderTicketId;
 	}
 
-
-
 	public int getNumberoftickets() {
-		return numberoftickets;
+		return quantity;
 	}
 
 	public void setNumberoftickets(int numberoftickets) {
-		this.numberoftickets = numberoftickets;
+		this.quantity = numberoftickets;
 	}
 
 	public Ticket getTicket() {
@@ -60,16 +51,12 @@ public class OrderTicket {
 		this.ticket = ticket;
 	}
 
-	public OrderFilm getOrderticket() {
+	public long getOrderticket() {
 		return order;
 	}
 
-	public void setOrderticket(OrderFilm order) {
+	public void setOrderticket(long order) {
 		this.order = order;
 	}
-    
-    
-    
-
 
 }
