@@ -12,8 +12,7 @@ public class Movie {
 	@Id
 	private long id;
 	
-	@Column (name = "Title")
-	@JsonProperty(value = "Title")
+	@Column (name = "title")
 	private String title;
 	
 	@Column (name = "imdbid")
