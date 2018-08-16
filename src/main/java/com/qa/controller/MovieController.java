@@ -19,7 +19,7 @@ import com.qa.constants.MovieConstants;
 import com.qa.persistence.domain.MovieModel;
 import com.qa.util.MovieDto;
 
-
+@RequestMapping("/movie")
 @RestController
 public class MovieController {
 
