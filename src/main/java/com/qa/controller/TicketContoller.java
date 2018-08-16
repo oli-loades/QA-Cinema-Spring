@@ -11,7 +11,8 @@ import com.qa.persistence.domain.Ticket;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/Ticket")
+@RestController
+@RequestMapping(value="/Ticket")
 public class TicketContoller {
 
 	@Autowired
