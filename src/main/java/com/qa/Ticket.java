@@ -10,6 +10,7 @@ import javax.persistence.Id;
 @Entity
 @JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
 public class Ticket {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  Long id;

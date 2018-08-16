@@ -29,7 +29,7 @@ public class OrderContoller {
               orderReposoinity.save(orderFilmToAdd);
        }
 
-       @PutMapping("{id}")
+       @PutMapping("Ticket")
        @ResponseStatus(HttpStatus.CREATED)
        public void updateOrder(@RequestBody OrderFilm orderFilm, @PathVariable long id)
        {
