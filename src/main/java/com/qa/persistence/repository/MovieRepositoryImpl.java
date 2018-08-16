@@ -6,7 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.qa.persistence.domain.MovieModel;
+import com.qa.persistence.domain.Movie;
 
 public class MovieRepositoryImpl implements MovieRepositoryCustom{
 	
@@ -14,8 +14,8 @@ public class MovieRepositoryImpl implements MovieRepositoryCustom{
     private EntityManager entityManager;
 
 	@Override
-	public List<MovieModel> findByTitle(String title) {
-		Query query = entityManager.createNativeQuery("SELECT * FROM movie WHERE title LIKE'" + title + "'", MovieModel.class);
+	public List<Movie> findByTitle(String title) {
+		Query query = entityManager.createNativeQuery("SELECT * FROM movie WHERE title LIKE'" + title + "'", Movie.class);
 		return query.getResultList();
 	}
 

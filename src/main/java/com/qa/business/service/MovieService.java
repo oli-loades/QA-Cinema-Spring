@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import com.qa.constants.MovieConstants;
-import com.qa.persistence.domain.MovieModel;
+import com.qa.persistence.domain.Movie;
 import com.qa.persistence.repository.MovieRepository;
 import com.qa.util.MovieDto;
 
@@ -23,10 +23,10 @@ public class MovieService {
 	private MovieRepository movieRepo;
 
 	public List<MovieDto> getAPIKey(String keyword) {
-		List<MovieModel> movie = movieRepo.findByTitle(keyword);
+		List<Movie> movie = movieRepo.findByTitle(keyword);
 		List<MovieDto> movies = new ArrayList<>();
 
-		for (MovieModel m : movie) {
+		for (Movie m : movie) {
 			MovieDto mov = restTemplate.getForObject(
 					MovieConstants.ADDRESS + m.getImdbID() + MovieConstants.API_KEY, MovieDto.class);
 			mov.setId(m.getId());
@@ -37,10 +37,10 @@ public class MovieService {
 	}
 	
 	public List<MovieDto> getAll(){
-		List<MovieModel> allMovies = movieRepo.findAll();
+		List<Movie> allMovies = movieRepo.findAll();
 		List<MovieDto> movies = new ArrayList<>();
 
-		for (MovieModel m : allMovies) {
+		for (Movie m : allMovies) {
 			MovieDto mov = restTemplate.getForObject(
 					MovieConstants.ADDRESS + m.getImdbID() + MovieConstants.API_KEY, MovieDto.class);
 			mov.setId(m.getId());
@@ -50,7 +50,7 @@ public class MovieService {
 		return movies;
 	}
 	
-	public String addMovie(MovieModel movie) {
+	public String addMovie(Movie movie) {
 		movieRepo.save(movie);
 		return "{\"message\": \"movie sucessfully added\"}";
 	}

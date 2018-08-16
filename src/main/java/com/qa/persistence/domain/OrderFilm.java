@@ -25,9 +25,14 @@ public class OrderFilm {
 	private Long orderid;
 
 	@OneToOne
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "accountId")
 	@JsonIgnore
 	private Account account;
+	
+	@OneToOne
+	@JoinColumn(name = "movieId")
+	@JsonIgnore
+	private Movie movie;
 
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<OrderTicket> tickets;
