@@ -22,7 +22,7 @@ public class Ticket {
 
      }
     public Ticket(String type,Long price) {
-         super();
+        super();
         this.type = type;
         this.price = price;
     }

@@ -16,11 +16,32 @@ public class OrderFilm {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+     private Long id;
      private int  accountId;
-    private String OrderNumber;
+     private String OrderNumber;
+     private int  seatNumber;
+     private  int screenNumber;
 
-    public OrderFilm(){
+    public int getSeatNumber() {
+        return seatNumber;
+    }
+
+    public void setSeatNumber(int seatNumber) {
+        this.seatNumber = seatNumber;
+    }
+
+    public int getScreenNuber() {
+        return screenNuber;
+    }
+
+    public void setScreenNuber(int screenNuber) {
+        this.screenNuber = screenNuber;
+    }
+
+    private int  screenNuber;
+
+
+    public OrderFilm (){
 
 
     }

@@ -4,4 +4,5 @@ import  com.qa.Ticket;
 
 public interface TiicketResponisity extends JpaRepository<Ticket,Long> {
 
+
 }

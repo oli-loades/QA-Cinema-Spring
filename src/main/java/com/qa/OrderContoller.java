@@ -37,16 +37,13 @@ public class OrderContoller {
 
               orderFilm.setId(id);
              orderReposoinity.save(orderFilm);
-
-
        }
-
-
        @DeleteMapping("{id}")
        @ResponseStatus(HttpStatus.NO_CONTENT)
-       public void detelteOrder(@PathVariable Long id)
-       {
-               orderReposoinity.deleteById(id);
+       public void detelteOrder(@PathVariable Long id) {
+              orderReposoinity.deleteById(id);
+
+
        }
 
 

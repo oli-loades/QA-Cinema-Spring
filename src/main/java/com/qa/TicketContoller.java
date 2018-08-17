@@ -3,7 +3,6 @@ package com.qa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -11,7 +10,6 @@ import java.util.Optional;
 public class TicketContoller {
     @Autowired
     TiicketResponisity ticketResponisy;
-
     @GetMapping("Ticket/allTickets")
     @ResponseStatus(HttpStatus.OK)
     public List<Ticket> getTickets(){
@@ -29,7 +27,6 @@ public class TicketContoller {
     @ResponseStatus(HttpStatus.CREATED)
     public void  updaqteTicket(@RequestBody Ticket ticket, @PathVariable long id){
         Optional<Ticket> ticketOptional = ticketResponisy.findById(id);
-
         ticket.setId(id);
         ticketResponisy.save(ticket);
     }
@@ -42,9 +39,13 @@ public class TicketContoller {
 
     @GetMapping("Ticket/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Ticket getOneTicket(@PathVariable long id){
+    public Ticket getOneTicket(@PathVariable long id)
+    {
+
         return ticketResponisy.getOne(id);
     }
+
+
 
 
 
