@@ -5,9 +5,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "orderticket")
 public class OrderTicket {
-
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private long id;
 
 	@ManyToOne
@@ -23,24 +23,24 @@ public class OrderTicket {
 
 	}
 
-	public OrderTicket(int numberoftickets) {
-		this.quantity = numberoftickets;
+	public OrderTicket(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public long getOrderTicketId() {
 		return id;
 	}
 
-	public void setOrderTicketId(long orderTicketId) {
-		this.id = orderTicketId;
+	public void setOrderTicketId(long id) {
+		this.id = id;
 	}
 
 	public int getNumberoftickets() {
 		return quantity;
 	}
 
-	public void setNumberoftickets(int numberoftickets) {
-		this.quantity = numberoftickets;
+	public void setNumberoftickets(int quantity) {
+		this.quantity = quantity;
 	}
 
 	public Ticket getTicket() {
