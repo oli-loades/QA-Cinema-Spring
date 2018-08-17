@@ -1,12 +1,20 @@
+package com.qa;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table
-public class Screen1 {
+public class Screen {
 
-    private int NumberOfSeet
+ 
+	@GeneratedValue("")
     private int screenNumber;
+    
+    
+    @OneToMany(mappedBy="screenMaped", case)
+    private int NumberOfSeet;
 
     public int getNumberOfSeet() {
         return NumberOfSeet;
@@ -23,7 +31,9 @@ public class Screen1 {
     public void setScreenNumber(int screenNumber) {
         this.screenNumber = screenNumber;
     }
-
-    private  void
+  
+    
+  
+    
 
 }
