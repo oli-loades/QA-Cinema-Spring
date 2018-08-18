@@ -3,7 +3,6 @@ package com.qa.controller;
 import java.util.List;
 import java.util.Optional;
 
-import com.qa.persistence.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +11,7 @@ import com.qa.persistence.domain.Account;
 
 @RestController
 @RequestMapping(value = "/account")
+@CrossOrigin(origins = "http://localhost:8080")
 public class AccountController {
 
 	@Autowired
