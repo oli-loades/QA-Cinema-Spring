@@ -29,7 +29,7 @@ public class MovieController {
 	
 	@GetMapping("/search/{keyword}")
 	public List<MovieDto> search(@PathVariable String keyword){
-		return service.getAPIKey(keyword); 
+		return service.search(keyword); 
 	}
 
 	@GetMapping("/getAll")

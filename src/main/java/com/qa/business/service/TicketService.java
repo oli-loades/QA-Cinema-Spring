@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.qa.persistence.domain.Ticket;
-import com.qa.persistence.repository.TiicketRespository;
+import com.qa.persistence.repository.TicketRespository;
 
 @Component
 public class TicketService {
 
 	@Autowired
-	private TiicketRespository ticketRepo;
+	private TicketRespository ticketRepo;
 
 	public List<Ticket> getTickets() {
 		return ticketRepo.findAll();
@@ -24,7 +24,7 @@ public class TicketService {
 		return "{\"message\": \"ticket sucessfully added\"}";
 	}
 
-	public String updaqteTicket(Ticket ticketToUpdate, Long ticketId) {
+	public String updateTicket(Ticket ticketToUpdate, Long ticketId) {
 		Optional<Ticket> ticket = ticketRepo.findById(ticketId);
 		if (ticket.isPresent()) {
 			ticketToUpdate.setTicketId(ticketId);
@@ -35,7 +35,7 @@ public class TicketService {
 
 	public String deleteTicket(Long id) {
 		ticketRepo.deleteById(id);
-		return "{\"message\": \"order sucessfully added\"}";
+		return "{\"message\": \"ticket sucessfully added\"}";
 	}
 	
 	public Optional<Ticket> getTicket(long id) {

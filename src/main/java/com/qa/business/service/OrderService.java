@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.qa.persistence.domain.OrderFilm;
 import com.qa.persistence.domain.Ticket;
@@ -36,6 +37,10 @@ public class OrderService {
 			orderToUpdate.setId(id);
 		}
 		orderRepo.save(orderToUpdate);
-		return "{\"message\": \"ticket sucessfully updated\"}";
+		return "{\"message\": \"order sucessfully updated\"}";
+	}
+	
+	public List<OrderFilm> getAllByAccount(@PathVariable Long id){
+		return orderRepo.getAllByAccount(id);
 	}
 }

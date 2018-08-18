@@ -31,6 +31,11 @@ public class OrderContoller {
 	public List<OrderFilm> getAllOrders() {
 		return orderServ.getAll();
 	}
+	
+	@GetMapping("/getAllByAccount/{id}")
+	public List<OrderFilm> getAllByAccount(@PathVariable Long id){
+		return orderServ.getAllByAccount(id);
+	}
 
 	@PostMapping("/add")
 	@ResponseStatus(HttpStatus.CREATED)

@@ -22,7 +22,7 @@ public class MovieService {
 	@Autowired
 	private MovieRepository movieRepo;
 
-	public List<MovieDto> getAPIKey(String keyword) {
+	public List<MovieDto> search(String keyword) {
 		List<Movie> movie = movieRepo.findByTitle(keyword);
 		List<MovieDto> movies = new ArrayList<>();
 

@@ -5,34 +5,39 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@JsonIgnoreProperties ({"hibernateLazyIntializer", "handler"})
+@Table(name="account")
 public class Account {
 	
 	@Id
-	@GeneratedValue(strategy= GenerationType.AUTO)
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long id;
 	
 	private String firstName;
 	private String lastName;
 	private String accountNumber;
 	
-	@OneToMany(mappedBy = "account", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<OrderFilm> orders;
 	
 	public Account() {}
-	
-	public Account(String firstName, String lastName, String accountNumber) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.accountNumber = accountNumber;
+
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -50,22 +55,20 @@ public class Account {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	
+
 	public String getAccountNumber() {
 		return accountNumber;
 	}
+
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
+	public List<OrderFilm> getOrders() {
+		return orders;
 	}
 
-	
-
-
+	public void setOrders(List<OrderFilm> orders) {
+		this.orders = orders;
+	}
 }

@@ -1,75 +1,59 @@
 package com.qa.persistence.domain;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 @Entity
-@JsonIgnoreProperties({"hibernateLazyIntializer","handler"})
+@Table(name="orderticket")
 public class OrderTicket {
-	
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long orderTicketId;
-    
-   
-    
+    @JsonIgnore
+    private Long id;
+
+    @Column
+    @JsonIgnore
+    private long order_id;
+
+    @JoinColumn(name = "ticket")
     @ManyToOne
-    @JoinColumn(name="ticketID")
     private Ticket ticket;
-    
-    @ManyToOne
-    @JoinColumn(name="orderId")
-    private OrderFilm order;
-    
-    private int numberoftickets;
 
-	public OrderTicket(int numberoftickets) {
-		this.numberoftickets = numberoftickets;
-	}
+    @Column
+    private int quantity;
 
-	
+    public OrderTicket(){}
 
-	public long getOrderTicketId() {
-		return orderTicketId;
-	}
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public long getOrder_id() {
+        return order_id;
+    }
 
-	public void setOrderTicketId(long orderTicketId) {
-		this.orderTicketId = orderTicketId;
-	}
+    public void setOrder_id(long order_id) {
+        this.order_id = order_id;
+    }
 
+    public Ticket getTicket() {
+        return ticket;
+    }
 
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
+    }
 
-	public int getNumberoftickets() {
-		return numberoftickets;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public void setNumberoftickets(int numberoftickets) {
-		this.numberoftickets = numberoftickets;
-	}
-
-	public Ticket getTicket() {
-		return ticket;
-	}
-
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}
-
-	public OrderFilm getOrderticket() {
-		return order;
-	}
-
-	public void setOrderticket(OrderFilm order) {
-		this.order = order;
-	}
-    
-    
-    
-
-
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

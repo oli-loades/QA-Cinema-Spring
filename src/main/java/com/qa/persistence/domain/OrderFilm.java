@@ -4,62 +4,59 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.qa.persistence.domain.OrderTicket;
 
 @Entity
-@JsonIgnoreProperties({ "hibernatateLazztIntializer", "handler" })
+@Table(name="orderfilm")
 public class OrderFilm {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long orderid;
+	private Long id;
 
-	@OneToOne
-	@JoinColumn(name = "accountId")
+	@Column
 	@JsonIgnore
-	private Account account;
-	
-	@OneToOne
-	@JoinColumn(name = "movieId")
-	@JsonIgnore
+	private long account_id;
+
+	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "movie")
 	private Movie movie;
 
-	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	private List<OrderTicket> tickets;
 
 	public OrderFilm() {
 
 	}
 
-	public OrderFilm(Account account) {
-		this.account = account;
-		tickets = new ArrayList<>();
-	}
-
 	public Long getId() {
-		return orderid;
+		return id;
 	}
 
 	public void setId(Long id) {
-		this.orderid = id;
+		this.id = id;
 	}
 
-	public Account getAccount() {
-		return account;
+	public long getAccount() {
+		return account_id;
 	}
 
-	public void setAccount(Account account) {
-		this.account = account;
+	@JsonIgnore
+	public void setAccount(long account) {
+		this.account_id = account;
 	}
 
 	public List<OrderTicket> getTickets() {
@@ -70,4 +67,11 @@ public class OrderFilm {
 		this.tickets = tickets;
 	}
 
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
 }
