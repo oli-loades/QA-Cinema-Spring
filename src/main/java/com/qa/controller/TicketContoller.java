@@ -32,7 +32,7 @@ public class TicketContoller {
 
 	@PutMapping("/edit/{id}")
 	public String updaqteTicket(Ticket ticketToUpdate, @PathVariable Long ticketId) {
-		return ticketServ.updaqteTicket(ticketToUpdate, ticketId);
+		return ticketServ.updateTicket(ticketToUpdate, ticketId);
 
 	}
 

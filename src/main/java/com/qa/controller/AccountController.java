@@ -3,13 +3,9 @@ package com.qa.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.qa.persistence.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.qa.business.service.AccountService;
 import com.qa.persistence.domain.Account;
@@ -36,4 +32,14 @@ public class AccountController {
 		return accServ.getAccount(id);
 	}
 
+	@PutMapping("/edit/{id}")
+	public String updaqteTicket(@RequestBody Account accountToUpdate, @PathVariable Long id) {
+		return accServ.updateAccount(accountToUpdate, id);
+
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public String deleteTicket(@PathVariable Long id) {
+		return accServ.deleteAccount(id);
+	}
 }

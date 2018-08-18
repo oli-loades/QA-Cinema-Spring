@@ -37,7 +37,7 @@ public class OrderService {
 			orderToUpdate.setId(id);
 		}
 		orderRepo.save(orderToUpdate);
-		return "{\"message\": \"ticket sucessfully updated\"}";
+		return "{\"message\": \"order sucessfully updated\"}";
 	}
 	
 	public List<OrderFilm> getAllByAccount(@PathVariable Long id){
