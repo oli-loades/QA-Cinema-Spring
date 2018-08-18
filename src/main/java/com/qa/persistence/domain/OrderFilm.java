@@ -27,23 +27,19 @@ public class OrderFilm {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name="account")
-	private long account;
-	
-	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@Column
+	@JsonIgnore
+	private long account_id;
+
+	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "movie")
 	private Movie movie;
 
-	@OneToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-	private List<Ticket> tickets;
+	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	private List<OrderTicket> tickets;
 
 	public OrderFilm() {
 
-	}
-
-	public OrderFilm(long account) {
-		this.account = account;
-		tickets = new ArrayList<>();
 	}
 
 	public Long getId() {
@@ -55,13 +51,14 @@ public class OrderFilm {
 	}
 
 	public long getAccount() {
-		return account;
+		return account_id;
 	}
 
+	@JsonIgnore
 	public void setAccount(long account) {
-		this.account = account;
+		this.account_id = account;
 	}
-/*
+
 	public List<OrderTicket> getTickets() {
 		return tickets;
 	}
@@ -69,5 +66,12 @@ public class OrderFilm {
 	public void setTickets(List<OrderTicket> tickets) {
 		this.tickets = tickets;
 	}
-*/
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
 }

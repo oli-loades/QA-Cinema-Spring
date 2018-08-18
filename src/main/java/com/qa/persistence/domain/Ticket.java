@@ -20,11 +20,6 @@ public class Ticket {
 
 	}
 
-	public Ticket(String type, double price) {
-		this.type = type;
-		this.price = price;
-	}
-
 	public Long getTicketId() {
 		return id;
 	}
