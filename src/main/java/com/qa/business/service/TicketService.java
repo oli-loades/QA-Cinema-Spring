@@ -4,12 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.qa.persistence.domain.Ticket;
 import com.qa.persistence.repository.TicketRespository;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class TicketService {
 
 	@Autowired

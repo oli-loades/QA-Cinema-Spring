@@ -2,7 +2,6 @@ package com.qa.persistence.domain;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "movie")

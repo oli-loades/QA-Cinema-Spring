@@ -2,10 +2,9 @@ package com.qa.business.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.qa.constants.MovieConstants;
@@ -13,7 +12,7 @@ import com.qa.persistence.domain.Movie;
 import com.qa.persistence.repository.MovieRepository;
 import com.qa.util.MovieDto;
 
-@Component
+@Service
 public class MovieService {
 
 	@Autowired

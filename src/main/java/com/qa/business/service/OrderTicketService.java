@@ -3,9 +3,9 @@ package com.qa.business.service;
 import com.qa.persistence.domain.OrderTicket;
 import com.qa.persistence.repository.OrderTicketRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class OrderTicketService {
 
     @Autowired

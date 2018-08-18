@@ -3,14 +3,13 @@ package com.qa.business.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.qa.persistence.domain.Ticket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountRepository;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class AccountService {
 	@Autowired
 	private AccountRepository accountRepo;
