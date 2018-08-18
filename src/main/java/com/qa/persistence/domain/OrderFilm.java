@@ -35,7 +35,7 @@ public class OrderFilm {
 	@JoinColumn(name = "movie")
 	private Movie movie;
 
-	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<OrderTicket> tickets;
 
 	public OrderFilm() {
