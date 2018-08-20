@@ -42,4 +42,9 @@ public class AccountController {
 	public String deleteTicket(@PathVariable Long id) {
 		return accServ.deleteAccount(id);
 	}
+	
+	@PostMapping("/login/{accNum}")
+	public boolean login(@RequestBody  String password,@PathVariable String accNum) {
+		return accServ.login(accNum, password);
+	}
 }

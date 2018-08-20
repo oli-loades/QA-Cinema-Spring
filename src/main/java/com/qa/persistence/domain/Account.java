@@ -24,6 +24,7 @@ public class Account {
 	private String firstName;
 	private String lastName;
 	private String accountNumber;
+	private String password;
 	
 	@OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<OrderFilm> orders;
@@ -69,5 +70,15 @@ public class Account {
 
 	public void setOrders(List<OrderFilm> orders) {
 		this.orders = orders;
+	}
+
+
+	public String getPassword() {
+		return password;
+	}
+
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }
