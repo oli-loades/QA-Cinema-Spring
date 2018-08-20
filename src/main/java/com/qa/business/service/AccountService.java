@@ -58,13 +58,13 @@ public class AccountService {
 		return "{\"message\": \"Account sucessfully  removed\"}";
 	}
 
-	public boolean login(LoginDto login) {
+	public long login(LoginDto login) {
 		Optional<Account> account = accountRepo.findByAccountNumber(login.getAccountNumber());
-		boolean auth = false;
+		long id = -1;
 		if (account.isPresent() && account.get().getPassword().equals(login.getPassword())) {
-			auth = true;
+			id = account.get().getId();
 		}
-		return auth;
+		return id;
 	}
 
 }

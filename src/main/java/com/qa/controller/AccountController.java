@@ -36,7 +36,6 @@ public class AccountController {
 	@PutMapping("/edit/{id}")
 	public String updaqteTicket(@RequestBody Account accountToUpdate, @PathVariable Long id) {
 		return accServ.updateAccount(accountToUpdate, id);
-
 	}
 
 	@DeleteMapping("/delete/{id}")
@@ -45,7 +44,7 @@ public class AccountController {
 	}
 	
 	@PostMapping("/login")
-	public boolean login(@RequestBody LoginDto login) {
+	public long login(@RequestBody LoginDto login) {
 		return accServ.login(login);
 	}
 }
