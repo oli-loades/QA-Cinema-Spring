@@ -1,13 +1,12 @@
 package com.qa;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 
 
 @Entity
@@ -17,19 +16,45 @@ public class OrderFilm {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
      private Long id;
-     private int  accountId;
-     private String OrderNumber;
-     private int  seatNumber;
-     private  int screenNumber;
 
-    public int getSeatNumber() {
-        return seatNumber;
+    @Column
+     private int  accountId;
+    @Column
+     private String OrderNumber;
+
+     @JsonIgnore
+     private  Seet seet;
+     
+     @OneToOne(mappedBy = "Order", targetEntity = Seet.class)
+     private int seatNumber;
+     @OneToOne(mappedBy = "Order", targetEntity = Screen.class)
+     private int screenNumber;
+
+     public void isSeatAvaible(){
+
+
+          Connection connection = datasource.getConection();
+          sqlSelectStatment
+         String selectStatement = "Select *  from seets where seatAvaaible = true";
+
+         if (seet.isSeatAvaible()){
+
+
+
+         else{
+
+         }
+     }
+
+
+
+    public Seet getSeet() {
+        return seet;
     }
 
     public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
     }
-
     public int getScreenNuber() {
         return screenNuber;
     }
@@ -39,7 +64,6 @@ public class OrderFilm {
     }
 
     private int  screenNuber;
-
 
     public OrderFilm (){
 
@@ -74,5 +98,7 @@ public class OrderFilm {
     public void setOrderNumber(String orderNumber) {
         OrderNumber = orderNumber;
     }
+    
+    
     
 }
