@@ -3,6 +3,7 @@ package com.qa.persistence.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="orderticket")
@@ -19,6 +20,12 @@ public class OrderTicket {
     @JoinColumn(name = "ticket")
     @ManyToOne
     private Ticket ticket;
+
+
+     @OneToMany(mappedBy = "time", cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+     @JsonIgnore
+     private List<movieTime> times;
+
 
     @Column
     private int quantity;

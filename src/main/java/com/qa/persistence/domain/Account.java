@@ -1,8 +1,5 @@
 package com.qa.persistence.domain;
-
-
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,18 +24,13 @@ public class Account {
 	
 	@OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<OrderFilm> orders;
-	
 	public Account() {}
-
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getFirstName() {
 		return firstName;
 	}

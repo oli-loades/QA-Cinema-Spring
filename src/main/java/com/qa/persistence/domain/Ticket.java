@@ -1,6 +1,9 @@
 package com.qa.persistence.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.sql.Time;
 
 @Entity
 @Table(name = "ticket")
@@ -9,7 +12,9 @@ public class Ticket {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column
 	private String type;
+	@Column
 	private double price;
 
 	public Ticket() {
