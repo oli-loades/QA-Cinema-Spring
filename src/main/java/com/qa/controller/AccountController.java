@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.qa.business.service.AccountService;
 import com.qa.persistence.domain.Account;
+import com.qa.util.LoginDto;
 
 @RestController
 @RequestMapping(value = "/account")
@@ -43,8 +44,8 @@ public class AccountController {
 		return accServ.deleteAccount(id);
 	}
 	
-	@PostMapping("/login/{accNum}")
-	public boolean login(@RequestBody  String password,@PathVariable String accNum) {
-		return accServ.login(accNum, password);
+	@PostMapping("/login")
+	public boolean login(@RequestBody LoginDto login) {
+		return accServ.login(login);
 	}
 }

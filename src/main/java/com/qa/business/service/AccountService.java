@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountRepository;
 import com.qa.util.AccoutnNumberGenerator;
+import com.qa.util.LoginDto;
 
 import org.springframework.stereotype.Service;
 
@@ -57,11 +58,10 @@ public class AccountService {
 		return "{\"message\": \"Account sucessfully  removed\"}";
 	}
 
-	public boolean login(String accNum, String password) {
-		Optional<Account> account = accountRepo.findByAccountNumber(accNum);
+	public boolean login(LoginDto login) {
+		Optional<Account> account = accountRepo.findByAccountNumber(login.getAccountNumber());
 		boolean auth = false;
-		System.out.println(password);
-		if (account.isPresent() && account.get().getPassword().equals(password)) {
+		if (account.isPresent() && account.get().getPassword().equals(login.getPassword())) {
 			auth = true;
 		}
 		return auth;
