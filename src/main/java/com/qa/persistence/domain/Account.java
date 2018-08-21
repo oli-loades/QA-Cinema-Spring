@@ -26,7 +26,7 @@ public class Account {
 	private String accountNumber;
 	private String password;
 	
-	@OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL, orphanRemoval = true,fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "account_id", cascade = CascadeType.ALL, orphanRemoval = false,fetch = FetchType.EAGER)
     private List<OrderFilm> orders;
 	
 	public Account() {}
