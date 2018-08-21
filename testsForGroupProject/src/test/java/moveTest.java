@@ -41,7 +41,10 @@ public class moveTest {
 
     @Test
     public void  putTest(){
-        String  string;
+        String  server = "http://localhost:8082/movie/";
+        requestParems.put();s
+
+
 
     }
 
