@@ -1,3 +1,5 @@
+import com.sun.org.apache.regexp.internal.RE;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -7,45 +9,51 @@ import org.junit.Before;
 import org.junit.Test;
 
 
+import java.awt.image.ReplicateScaleFilter;
 
 import static io.restassured.RestAssured.given;
 
 public class moveTest {
-    JSONObject  requestParems;
-    RequestSpecification request
-    @Before
-    public void  setUp()
-    {
-        requestParems = new JSONObject();
-        request  = given().contentType(ContentType.JSON);
-    }
+
+
     @Test
     public void getTest() {
         RequestSpecification request = given().contentType(ContentType.JSON);
-        Response response = request.get("http://localhost:8082/movie/getAll");
+        Response response = request.get("http://localhost:8082//movie//getAll");
         Assert.assertEquals(200, response.getStatusCode());
     }
 
     @Test
-    public void  postTest(){
+    public void  postTest() {
 
 
-        String  server =  "http://localhost:8082/movie/";
+        JSONObject requestParems = new JSONObject();
+
+        String server = "http://localhost:8082/movie/add";
+        RequestSpecification request = given().contentType(ContentType.JSON);
 
         requestParems.put("Title", "Outlaw King");
-        requestParems.put("imdbId",  "tt6679794");
-
-        Response response =  request.post(server);
+        requestParems.put("imdbId", "tt6679794");
+        Response response = request.post(server);
+        Response requestSpefication = request.post(server);
+        Response requestSpeficaiton = request.post();
         Assert.assertEquals(201, response.getStatusCode());
+
+    }
+    @Test
+    public void  deleteTest(){
+
+        RequestSpecification request = given().contentType(ContentType.JSON);
+        String  server = "http://localhost:8082/movie/1";
+        Response response1 =  request.delete(server);
+
     }
 
     @Test
-    public void  putTest(){
-        String  server = "http://localhost:8082/movie/";
-        requestParems.put();s
-
-
-
+    public void getBytitleTest(){
+        RequestSpecification request = given().contentType(ContentType.JSON);
+       Response response  = request.get("http://localhost:8082/movie/get/Tag");
+       Assert.assertEquals(200, response.getStatusCode());
     }
 
 }
