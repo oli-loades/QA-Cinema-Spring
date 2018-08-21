@@ -2,19 +2,18 @@ package com.qa.persistence.domain;
 
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "movie")
 public class Movie {
 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column (name = "title")
+
+	@Column(name = "title")
 	private String title;
-	
-	@Column (name = "imdbid")
+
+	@Column(name = "imdbid")
 	private String imdbID;
 
 	public Movie() {
