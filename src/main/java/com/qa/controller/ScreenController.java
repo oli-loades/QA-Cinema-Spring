@@ -1,5 +1,6 @@
 package com.qa.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +19,15 @@ public class ScreenController {
 	@Autowired
 	private ScreenServices srcservice;
 	
-	@GetMapping(value= "/getall")
-	public int getScreen(@RequestBody Screens screens,@PathVariable String movietitle) {
-		return srcservice.getScreenNumber(screens, movietitle);
+	@GetMapping(value= "/getscreen")
+	public int getScreen(@RequestBody String movietitle) {
+		return srcservice.getScreenNumber( movietitle);
 
-}
+}	
+	@GetMapping(value="/getall")
+	public List<Screens> getallScreens(){	
+		return srcservice.getAllscreens();
+	}
+	
+	
 }
