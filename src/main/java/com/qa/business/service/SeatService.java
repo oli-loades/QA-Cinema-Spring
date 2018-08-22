@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.qa.persistence.domain.Seats;
 import com.qa.persistence.repository.SeatRepository;
+import com.qa.business.service.ScreenServices;
 
 @Service
 public class SeatService {

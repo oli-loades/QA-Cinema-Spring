@@ -1,6 +1,7 @@
 package com.qa.persistence.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -22,13 +23,8 @@ public class OrderFilm {
 	@JoinColumn(name = "movie")
 	private Movie movie;
 	
-	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "seat")
-	private Seats seat;
-	
-
 	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
-	private List<OrderTicket> tickets;
+	private Set<OrderTicket> tickets;
 
 	public OrderFilm() {
 
@@ -51,11 +47,11 @@ public class OrderFilm {
 		this.account_id = account;
 	}
 
-	public List<OrderTicket> getTickets() {
+	public Set<OrderTicket> getTickets() {
 		return tickets;
 	}
 
-	public void setTickets(List<OrderTicket> tickets) {
+	public void setTickets(Set<OrderTicket> tickets) {
 		this.tickets = tickets;
 	}
 

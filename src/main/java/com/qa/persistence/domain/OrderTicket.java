@@ -2,6 +2,8 @@ package com.qa.persistence.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,6 +21,10 @@ public class OrderTicket {
     @JoinColumn(name = "ticket")
     @ManyToOne
     private Ticket ticket;
+    
+    @ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "seat")
+	private Set<Seats> seat;
 
     @Column
     private int quantity;

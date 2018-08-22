@@ -1,8 +1,20 @@
 package com.qa.persistence.domain;
 
-public class Seats {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="seat")
+@IdClass(Seats.class)
+public class Seats implements Serializable{
 	
+	@Id
 	private int screenNumber;
+	@Id
 	private String seatNumber;
 	
 	public Seats() {}

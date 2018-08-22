@@ -1,22 +1,25 @@
 package com.qa.persistence.domain;
 
-import javax.persistence.CascadeType;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
-public class Screens {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Screen")
+@IdClass(Screens.class)
+public class Screens implements Serializable {
 	
 	
-	
-	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
-	@JoinColumn(name = "movie")
-	private Movie movie;
-	
+
+	@Id
 	private int screennumber;
-	
+	@Id
 	private String movietitle;
 	
+	public Screens() {}
 	
 	
 	public Screens(int screennumber,  String movietitle) {

@@ -27,9 +27,6 @@ import com.qa.persistence.domain.Seats;
 public class SeatController {
 	
 	@Autowired
-	Seats seats;
-	
-	@Autowired
 	SeatService seatservices;
 	
 	@GetMapping(value="/getall")
