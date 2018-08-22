@@ -17,7 +17,7 @@ public class ScreenController {
 	@Autowired
 	private ScreenServices srcservice;
 	
-	@GetMapping
+	@GetMapping(value= "/getall")
 	public int getScreen(@RequestBody String movietitle) {
 		return srcservice.getScreenNumber(movietitle);
 

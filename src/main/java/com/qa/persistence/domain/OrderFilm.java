@@ -21,6 +21,11 @@ public class OrderFilm {
 	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "movie")
 	private Movie movie;
+	
+	@ManyToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@JoinColumn(name = "seat")
+	private Seats seat;
+	
 
 	@OneToMany(mappedBy = "order_id", cascade=CascadeType.ALL,fetch = FetchType.EAGER, orphanRemoval = true)
 	private List<OrderTicket> tickets;
