@@ -17,13 +17,12 @@ public class OrderContoller {
 
 	@Autowired
 	private OrderService orderServ;
-
 	@GetMapping("/getAll")
 	@ResponseStatus(HttpStatus.OK)
 	public List<OrderFilm> getAllOrders() {
 		return orderServ.getAll();
 	}
-	
+
 	@GetMapping("/getAllByAccount/{id}")
 	public List<OrderFilm> getAllByAccount(@PathVariable Long id){
 		return orderServ.getAllByAccount(id);

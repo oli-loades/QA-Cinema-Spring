@@ -2,11 +2,9 @@ package com.qa.persistence.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import com.qa.persistence.domain.Ticket;
+import com.qa.persistence.domain.movieTime;
 
 @Repository
-public interface TicketRespository extends JpaRepository<Ticket,Long> {
-
+public interface timeResponsity extends JpaRepository<movieTime, Long> {
 
 }

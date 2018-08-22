@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Set;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="orderticket")
@@ -25,6 +26,12 @@ public class OrderTicket {
     @ManyToMany(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "seat")
 	private Set<Seats> seat;
+
+
+     @OneToMany(mappedBy = "time", cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+     @JsonIgnore
+     private List<movieTime> times;
+
 
     @Column
     private int quantity;
