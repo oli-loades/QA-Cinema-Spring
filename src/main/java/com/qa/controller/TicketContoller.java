@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.qa.business.service.TicketService;
 import com.qa.persistence.domain.Ticket;
 
+import javax.persistence.Entity;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,6 +37,7 @@ public class TicketContoller {
 		return ticketServ.updateTicket(ticketToUpdate, ticketId);
 
 	}
+
 
 	@DeleteMapping("/delete/{id}")
 	public String deleteTicket(@PathVariable Long id) {

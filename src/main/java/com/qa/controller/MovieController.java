@@ -5,8 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.qa.business.service.MovieService;
 import com.qa.persistence.domain.Movie;
-
-import  com.qa.persistence.
+import com.qa.util.MovieDto;
 @RequestMapping("/movie")
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -34,6 +33,8 @@ public class MovieController {
 	public String deleteMovie(@PathVariable Long id) {
 		return service.deleteMovie(id);
 	}
+
+
 
 
 }

@@ -1,3 +1,4 @@
+import com.sun.org.apache.regexp.internal.RE;
 import cucumber.api.java.it.Ma;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -22,7 +23,7 @@ public class acounntTests {
     @Test
     public void getTest() {
         RequestSpecification request = given().contentType(ContentType.JSON);
-        Response response = request.get("http://localhost:8182/acounts/getAll");
+        Response response = request.get("http://localhost:8182/account/getAll");
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -35,7 +36,9 @@ public class acounntTests {
 
 
         JSONObject requestParems = new JSONObject();
-        RestAssured.baseURI = "http://localhost:8182/acounts";
+        RestAssured.baseURI = "http://localhost:8182/account/add";
+
+        RequestSpecification request =  given().contentType(ContentType.JSON);
 
         Map<String,Object> emptyAcount = new HashMap<>();
         Map<String,Object>  emptyOrder = new HashMap<>();
@@ -48,33 +51,43 @@ public class acounntTests {
         nestedTicketAsMaps.put("id", 1);
         nestedTicketAsMaps.put("type","child");
         nestedTicketAsMaps.put("price",1.25);
-        nestedMoiveAsMap.p
+
+        tickArray.put(nestedTicketAsMaps);
 
         nestedMoiveAsMap.put("id", 1);
         nestedMoiveAsMap.put("title", "Outlaw King");
         nestedMoiveAsMap.put("imdbID", "tt6679794");
 
-
         nestedOrderAsMap.put("id", 1);
         nestedOrderAsMap.put("order",nestedMoiveAsMap);
-        nestedMoiveAsMap.put("order", nestedMoiveAsMap);
+        nestedOrderAsMap.put("tickets", tickArray);
 
+        orderArray.put(tickArray);
         requestParems.put("firstName","Rachel");
         requestParems.put("LastName", "Lowe");
+        requestParems.put("orders", orderArray);
+
+
+        Response  response = request.post(RestAssured.baseURI);
+        System.out.println(response.body().asString());
+        Assert.assertEquals(201, response.getStatusCode());
 
 
 
     }
     @Test
     public void  putTest(){
-
-
+        String strin
     }
 
     @Test
     public void deleateTest(){
         String url = "http://localhost:8182/acounts/delete";
         RequestSpecification request = given().contentType(ContentType.JSON);
+
+        Response response = request.delete(url);
+
+        Assert.assertEquals(204,response.getStatusCode());
 
 
     }

@@ -14,7 +14,9 @@ public class movieTimeTest {
     @Test
     public void  getTest(){
         RequestSpecification request =  given().contentType(ContentType.JSON);
-        Response response = request.get("localhost:8082/time/getAll" );
+        Response response = request.get("http//localhost:8182/time/getAllTimes" );
         Assert.assertEquals(200,response.getStatusCode());
+
+
     }
 }

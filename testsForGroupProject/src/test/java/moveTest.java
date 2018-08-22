@@ -19,7 +19,7 @@ public class moveTest {
     @Test
     public void getTest() {
         RequestSpecification request = given().contentType(ContentType.JSON);
-        Response response = request.get("http://localhost:8082//movie//getAll");
+        Response response = request.get("http://localhost:8182//movie//getAll");
         Assert.assertEquals(200, response.getStatusCode());
     }
 
@@ -29,7 +29,7 @@ public class moveTest {
 
         JSONObject requestParems = new JSONObject();
 
-        String server = "http://localhost:8082/movie/add";
+        String server = "http://localhost:8182/movie/add";
         RequestSpecification request = given().contentType(ContentType.JSON);
 
         requestParems.put("Title", "Outlaw King");
@@ -39,20 +39,23 @@ public class moveTest {
         Response requestSpeficaiton = request.post();
         Assert.assertEquals(201, response.getStatusCode());
 
+
+
     }
     @Test
     public void  deleteTest(){
 
         RequestSpecification request = given().contentType(ContentType.JSON);
-        String  server = "http://localhost:8082/movie/1";
-        Response response1 =  request.delete(server);
+        String  server = "http://localhost:8182/movie/delete/1";
+        Response response =  request.delete(server);
+
+        Assert.assertEquals(204, response.getStatusCode());
 
     }
 
     @Test
-    public void getBytitleTest(){
-        RequestSpecification request = given().contentType(ContentType.JSON);
-       Response response  = request.get("http://localhost:8082/movie/get/Tag");
+    public void getBytitleTest(){ RequestSpecification request = given().contentType(ContentType.JSON);
+       Response response  = request.get("http://localhost:8182/search/get/Tag");
        Assert.assertEquals(200, response.getStatusCode());
     }
 
