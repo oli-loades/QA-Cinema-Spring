@@ -20,12 +20,14 @@ public class MovieDto {
 	private String imdbID;
 	@JsonProperty(value = "Poster")
 	private String posterURL;
+	@JsonProperty(value = "Plot")
+	private String plot;
 	
 	public MovieDto() {
 		
 	}
 	
-	public MovieDto(String title,String release, String rated, String runtime, String genre,String imdbID,String poster,int year) {
+	public MovieDto(String title,String release, String rated, String runtime, String genre,String imdbID,String poster,String plot,int year) {
 		this.title = title;
 		this.released = release;
 		this.rated = rated;
@@ -34,6 +36,7 @@ public class MovieDto {
 		this.imdbID = imdbID;
 		this.year = year;
 		this.posterURL = poster;
+		this.plot = plot;
 	}
 	public long getId() {
 		return id;
@@ -84,6 +87,14 @@ public class MovieDto {
 	}
 	public void setImdbID(String imdbID) {
 		this.imdbID = imdbID;
+	}
+
+	public String getPlot() {
+		return plot;
+	}
+
+	public void setPlot(String plot) {
+		this.plot = plot;
 	}
 
 	public String getPosterURL() {

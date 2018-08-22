@@ -34,5 +34,18 @@ public class AccountRepositoryCustomImpl implements AccountRepositoryCustom {
 		}
 		return exists;
 	}
+	
+	@Override
+	public Optional<Account> findByEmail(String email){
+		Query query = entityManager.createNativeQuery("SELECT * FROM account WHERE email='" + email + "'",
+				Account.class);
+		Optional<Account> account;
+		if (query.getResultList().isEmpty()) {
+			account = Optional.empty();
+		} else {
+			account = Optional.of((Account) query.getSingleResult());
+		}
+		return account;
+	}
 
 }

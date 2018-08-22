@@ -22,6 +22,11 @@ public class AccountController {
 	public List<Account> getaccounts() {
 		return accServ.getAllAccounts();
 	}
+	
+	@GetMapping("/getIdByEmail")
+	public long getByEmail(String email) {
+		return accServ.getByEmail(email);
+	}
 
 	@PostMapping("/add")
 	public String createaccount(@RequestBody Account account) {
@@ -42,9 +47,10 @@ public class AccountController {
 	public String deleteTicket(@PathVariable Long id) {
 		return accServ.deleteAccount(id);
 	}
-	
+	/*
 	@PostMapping("/login")
 	public long login(@RequestBody LoginDto login) {
 		return accServ.login(login);
 	}
+	*/
 }

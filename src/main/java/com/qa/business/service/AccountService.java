@@ -57,7 +57,7 @@ public class AccountService {
 		accountRepo.deleteById(id);
 		return "{\"message\": \"Account sucessfully  removed\"}";
 	}
-
+/*
 	public long login(LoginDto login) {
 		Optional<Account> account = accountRepo.findByAccountNumber(login.getAccountNumber());
 		long id = -1;
@@ -66,5 +66,14 @@ public class AccountService {
 		}
 		return id;
 	}
+*/
 
+	public long getByEmail(String email) {
+		Optional<Account> account = accountRepo.findByEmail(email);
+		long id = -1;
+		if (account.isPresent()) {
+			id = account.get().getId();
+		}
+		return id;
+	}
 }

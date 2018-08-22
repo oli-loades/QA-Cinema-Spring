@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.qa.business.service.MovieService;
 import com.qa.persistence.domain.Movie;
+import com.qa.persistence.repository.MovieRepository;
 import com.qa.util.MovieDto;
 
 @RequestMapping("/movie")

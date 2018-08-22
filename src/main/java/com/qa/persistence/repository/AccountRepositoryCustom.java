@@ -5,6 +5,9 @@ import java.util.Optional;
 import com.qa.persistence.domain.Account;
 
 public interface AccountRepositoryCustom {
-Optional<Account> findByAccountNumber(String accNum);
-Boolean existsByAccountNunber(String accNum);
+	Optional<Account> findByAccountNumber(String accNum);
+
+	Boolean existsByAccountNunber(String accNum);
+
+	Optional<Account> findByEmail(String email);
 }
