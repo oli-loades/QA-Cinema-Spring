@@ -29,12 +29,12 @@ public class ticket {
 
         JSONObject requestParems = new JSONObject();
         String url = "localhost:8082/ticket/add";
-        RequestSpecification request = given().contentType(ContentType.JSON)
+        RequestSpecification request = given().contentType(ContentType.JSON);
         requestParems.put("type", "child");
         requestParems.put("price",1.25);
         Assert.assertEquals(201, given());
 
-
+.
     }
 
     @Test

@@ -45,15 +45,19 @@ public class acounntTests {
         Map<String,Object>  nestedMoiveAsMap = new HashMap<>();
         Map<String,Object>  nestedTicketAsMaps = new HashMap<>();
 
-        nestedTicketAsMaps.put("id", "");
+        nestedTicketAsMaps.put("id", 1);
+        nestedTicketAsMaps.put("type","child");
+        nestedTicketAsMaps.put("price",1.25);
+        nestedMoiveAsMap.p
 
         nestedMoiveAsMap.put("id", 1);
         nestedMoiveAsMap.put("title", "Outlaw King");
         nestedMoiveAsMap.put("imdbID", "tt6679794");
 
+
         nestedOrderAsMap.put("id", 1);
         nestedOrderAsMap.put("order",nestedMoiveAsMap);
-        //nestedOrderAsMap.put("");
+        nestedMoiveAsMap.put("order", nestedMoiveAsMap);
 
         requestParems.put("firstName","Rachel");
         requestParems.put("LastName", "Lowe");
