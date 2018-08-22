@@ -27,12 +27,6 @@ public class OrderTicket {
 	@JoinColumn(name = "seat")
 	private Set<Seats> seat;
 
-
-     @OneToMany(mappedBy = "time", cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
-     @JsonIgnore
-     private List<movieTime> times;
-
-
     @Column
     private int quantity;
 

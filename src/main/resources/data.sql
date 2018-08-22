@@ -13,3 +13,9 @@ INSERT INTO screen (screennumber, movietitle) VALUES (1, 'Tag')
 INSERT INTO screen (screennumber, movietitle) VALUES (2, 'Open Wide')
 
 INSERT INTO screen (screennumber, movietitle) VALUES (3, 'Antman')
+
+INSERT INTO screentime (screentimes) VALUES ('2pm')
+
+INSERT INTO screentime (screentimes) VALUES ('5pm')
+
+INSERT INTO screentime (screentimes) VALUES ('8pm')
