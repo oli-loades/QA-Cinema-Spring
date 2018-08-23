@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.qa.persistence.domain.Ticket;
 
 @Repository
-public interface TicketRespository extends JpaRepository<Ticket,Long> {
+public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
 }

@@ -6,14 +6,14 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.qa.persistence.domain.Ticket;
-import com.qa.persistence.repository.TicketRespository;
+import com.qa.persistence.repository.TicketRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TicketService {
 
 	@Autowired
-	private TicketRespository ticketRepo;
+	private TicketRepository ticketRepo;
 
 	public List<Ticket> getTickets() {
 		return ticketRepo.findAll();

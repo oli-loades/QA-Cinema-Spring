@@ -37,13 +37,12 @@ public class OrderFilm {
 		this.id = id;
 	}
 
-	public long getAccount() {
+	public long getAccount_id() {
 		return account_id;
 	}
 
-	@JsonIgnore
-	public void setAccount(long account) {
-		this.account_id = account;
+	public void setAccount_id(long account_id) {
+		this.account_id = account_id;
 	}
 
 	public List<OrderTicket> getTickets() {

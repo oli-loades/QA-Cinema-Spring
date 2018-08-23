@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.qa.business.service.OrderService;
 import com.qa.persistence.domain.OrderFilm;
+import com.qa.util.OrderDto;
 
 import java.util.List;
 
@@ -31,15 +32,15 @@ public class OrderContoller {
 
 	@PostMapping("/add")
 	@ResponseStatus(HttpStatus.CREATED)
-	public String addOrder(@RequestBody OrderFilm orderFilmToAdd) {
-		return orderServ.add(orderFilmToAdd);
+	public long addOrder(@RequestBody OrderDto order) {
+		return orderServ.add(order);
 	}
-
+/*
 	@PutMapping("/update/{id}")
-	public String updateOrder(@RequestBody OrderFilm orderFilm, @PathVariable long id) {
-		return orderServ.updateOrder(orderFilm, id);
+	public String updateOrder(@RequestBody OrderDto order, @PathVariable long id) {
+		return orderServ.updateOrder(order, id);
 	}
-
+*/
 	@DeleteMapping("/delete/{id}")
 	public String detelteOrder(@PathVariable Long id) {
 		return orderServ.deleteOrder(id);

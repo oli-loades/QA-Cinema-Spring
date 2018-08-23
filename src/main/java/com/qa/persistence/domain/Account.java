@@ -4,6 +4,7 @@ package com.qa.persistence.domain;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -25,6 +26,8 @@ public class Account {
 	private String firstName;
 	private String lastName;
 	private String accountNumber;
+	
+	@Column(unique = true)
 	@Email
 	private String email;
 	//private String password;
