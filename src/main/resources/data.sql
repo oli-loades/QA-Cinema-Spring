@@ -3,7 +3,6 @@ INSERT INTO movie(id,title,imdbid) VALUES(2,'Supporting the Girls','tt6859352')
 INSERT INTO movie(id,title,imdbid) VALUES(3,'The Meg','tt4779682')
 INSERT INTO movie(id,title,imdbid) VALUES(4,'Mission: Impossible - Fallout','tt4912910')
 INSERT INTO movie(id,title,imdbid) VALUES(5,'Slender Man','tt5690360')
-
 INSERT INTO movie(id,title,imdbid) VALUES(6,'Incredibles 2','tt3606756')
 INSERT INTO movie(id,title,imdbid) VALUES(7,'Antman and the Wasp','tt5095030')
 INSERT INTO movie(id,title,imdbid) VALUES(8,'The Equalizer 2','tt3766354')
