@@ -35,12 +35,12 @@ public class OrderContoller {
 	public long addOrder(@RequestBody OrderDto order) {
 		return orderServ.add(order);
 	}
-/*
+
 	@PutMapping("/update/{id}")
 	public String updateOrder(@RequestBody OrderDto order, @PathVariable long id) {
 		return orderServ.updateOrder(order, id);
 	}
-*/
+
 	@DeleteMapping("/delete/{id}")
 	public String detelteOrder(@PathVariable Long id) {
 		return orderServ.deleteOrder(id);

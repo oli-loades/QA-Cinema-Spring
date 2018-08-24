@@ -66,8 +66,8 @@ public class AccountService {
 		}
 		return id;
 	}
-*/
 
+*/
 	public long getByEmail(String email) {
 		Optional<Account> account = accountRepo.findByEmail(email);
 		long id = -1;
@@ -76,4 +76,5 @@ public class AccountService {
 		}
 		return id;
 	}
+	
 }

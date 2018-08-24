@@ -54,12 +54,15 @@ public class OrderService {
 		return "{\"message\": \"order sucessfully removed\"}";
 	}
 
-	public String updateOrder(OrderFilm orderToUpdate, long id) {
+	public String updateOrder(OrderDto orderDto, long id) {
 		Optional<OrderFilm> order = orderRepo.findById(id);
-		if (order.isPresent()) {
-			orderToUpdate.setId(id);
+		Optional<Movie> movie = movieRepo.findById(orderDto.getMovie());
+		Optional<Account> account = accountRepo.findByEmail(orderDto.getEmail());
+		if (order.isPresent()&&movie.isPresent() && account.isPresent()) {
+			order.get().setAccount_id(account.get().getId());
+			order.get().setMovie(movie.get());
 		}
-		orderRepo.save(orderToUpdate);
+		orderRepo.save(order.get());
 		return "{\"message\": \"order sucessfully updated\"}";
 	}
 
