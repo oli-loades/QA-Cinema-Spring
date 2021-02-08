@@ -27,14 +27,11 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-
 	</dependencies>
-
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
-
 
 	<build>
 		<plugins>

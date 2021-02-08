@@ -2,28 +2,26 @@ package com.qa.persistence.domain;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "movie")
-public class MovieModel {
+public class Movie {
 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private long id;
 	
-	@Column (name = "Title")
-	@JsonProperty(value = "Title")
+	@Column (name = "title")
 	private String title;
 	
 	@Column (name = "imdbid")
 	private String imdbID;
 
-	public MovieModel() {
+	public Movie() {
 
 	}
 
-	public MovieModel(String title, String imdbID) {
+	public Movie(String title, String imdbID) {
 		this.title = title;
 		this.imdbID = imdbID;
 	}

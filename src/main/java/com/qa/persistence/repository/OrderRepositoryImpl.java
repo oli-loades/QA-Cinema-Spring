@@ -7,16 +7,15 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.qa.persistence.domain.Movie;
+import com.qa.persistence.domain.OrderFilm;
 
-public class MovieRepositoryImpl implements MovieRepositoryCustom{
+public class OrderRepositoryImpl implements OrderRepositoryCustom{
 	
 	@PersistenceContext
     private EntityManager entityManager;
-
-	@Override
-	public List<Movie> findByTitle(String title) {
-		Query query = entityManager.createNativeQuery("SELECT * FROM movie WHERE title LIKE'" + title + "'", Movie.class);
+	
+	public List<OrderFilm> getAllByAccount(long id) {
+		Query query = entityManager.createNativeQuery("SELECT * FROM orderfilm WHERE account=" + id, Movie.class);
 		return query.getResultList();
 	}
-
 }
